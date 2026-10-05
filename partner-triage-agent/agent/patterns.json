@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Retrieval-grounded drafting",
+    "summary": "Single model call grounded in retrieved documents. Human reviews and edits the draft before it is used.",
+    "tags": ["rag", "drafting", "summarisation", "documents", "claims", "assessment", "report"],
+    "when": "Output is text a human will review. Latency tolerant. No actions taken on systems.",
+    "fails_when": "Retrieval quality is poor or source documents are stale or contradictory."
+  },
+  {
+    "name": "Orchestrated multi-step with tool use",
+    "summary": "One agent loop that calls typed tools against real systems, then produces a structured output.",
+    "tags": ["agent", "tools", "orchestration", "integration", "workflow", "multi-step", "api"],
+    "when": "The task needs live data from more than one system and the steps vary by input.",
+    "fails_when": "Tools are unreliable or slow, or the model cannot tell when it is done."
+  },
+  {
+    "name": "Classify then route",
+    "summary": "Cheap model classifies the input, then routes to a specialised prompt or a human queue.",
+    "tags": ["triage", "routing", "classification", "volume", "support", "intake", "queue"],
+    "when": "High volume, mixed input quality, and a long tail that should go to humans.",
+    "fails_when": "Categories overlap, or the long tail is bigger than anyone admitted."
+  },
+  {
+    "name": "Multi-agent with a supervisor",
+    "summary": "A supervisor agent decomposes work to specialist sub-agents and reconciles their output.",
+    "tags": ["multi-agent", "supervisor", "decomposition", "research", "complex", "parallel"],
+    "when": "Genuinely separable subtasks with different tools or knowledge, and long horizons.",
+    "fails_when": "Subtasks are not actually independent. Usually premature. Try orchestrated single-agent first."
+  },
+  {
+    "name": "Human-in-the-loop approval gate",
+    "summary": "Agent prepares an action and stops. A human approves before anything is written back.",
+    "tags": ["approval", "governance", "risk", "regulated", "writeback", "insurance", "finance", "liability"],
+    "when": "The action is consequential, regulated, or hard to reverse.",
+    "fails_when": "Approval volume overwhelms the humans, so they rubber-stamp and the gate becomes theatre."
+  },
+  {
+    "name": "Batch enrichment",
+    "summary": "Offline pass over a backlog of records, writing structured fields back to a system of record.",
+    "tags": ["batch", "enrichment", "backlog", "data", "migration", "structured", "extraction"],
+    "when": "Volume is high, latency does not matter, and output is structured rather than prose.",
+    "fails_when": "Error rate is invisible because nobody sampled the output before trusting it."
+  }
+]

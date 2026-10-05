@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "triage-agent",
+      "runtimeExecutable": "/Users/Nummy/partner-triage-agent/agent/.venv/bin/python",
+      "runtimeArgs": ["/Users/Nummy/partner-triage-agent/agent/server.py"],
+      "port": 8765
+    }
+  ]
+}
